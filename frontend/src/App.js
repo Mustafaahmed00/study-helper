@@ -7,6 +7,8 @@ import Dashboard from './pages/Dashboard';
 import Topics from './pages/Topics';
 import Resources from './pages/Resources';
 import Progress from './pages/Progress';
+import Flashcards from './pages/Flashcards';
+import CodePlayground from './pages/CodePlayground';
 
 const theme = createTheme({
   palette: {
@@ -94,6 +96,8 @@ function App() {
             <Route path="/topics" element={<Topics />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/progress" element={<Progress />} />
+            <Route path="/flashcards" element={<Flashcards />} />
+            <Route path="/playground" element={<CodePlayground />} />
           </Routes>
         </div>
       </Router>

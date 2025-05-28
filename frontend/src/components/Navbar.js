@@ -1,70 +1,44 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {
   AppBar,
+  Box,
   Toolbar,
   Typography,
   Button,
-  Box,
-  Container,
+  Container
 } from '@mui/material';
-import {
-  Dashboard as DashboardIcon,
-  Book as BookIcon,
-  LibraryBooks as LibraryIcon,
-  Timeline as TimelineIcon,
-} from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <AppBar position="static">
       <Container maxWidth="lg">
-        <Toolbar>
+        <Toolbar disableGutters>
           <Typography
             variant="h6"
-            component={RouterLink}
-            to="/"
-            sx={{
-              flexGrow: 1,
-              textDecoration: 'none',
-              color: 'inherit',
-              display: 'flex',
-              alignItems: 'center',
-            }}
+            component="div"
+            sx={{ flexGrow: 1, cursor: 'pointer' }}
+            onClick={() => navigate('/')}
           >
             Study Helper
           </Typography>
+
           <Box sx={{ display: 'flex', gap: 2 }}>
-            <Button
-              color="inherit"
-              component={RouterLink}
-              to="/"
-              startIcon={<DashboardIcon />}
-            >
-              Dashboard
-            </Button>
-            <Button
-              color="inherit"
-              component={RouterLink}
-              to="/topics"
-              startIcon={<BookIcon />}
-            >
+            <Button color="inherit" onClick={() => navigate('/topics')}>
               Topics
             </Button>
-            <Button
-              color="inherit"
-              component={RouterLink}
-              to="/resources"
-              startIcon={<LibraryIcon />}
-            >
+            <Button color="inherit" onClick={() => navigate('/resources')}>
               Resources
             </Button>
-            <Button
-              color="inherit"
-              component={RouterLink}
-              to="/progress"
-              startIcon={<TimelineIcon />}
-            >
+            <Button color="inherit" onClick={() => navigate('/flashcards')}>
+              Flashcards
+            </Button>
+            <Button color="inherit" onClick={() => navigate('/playground')}>
+              Code Playground
+            </Button>
+            <Button color="inherit" onClick={() => navigate('/progress')}>
               Progress
             </Button>
           </Box>
